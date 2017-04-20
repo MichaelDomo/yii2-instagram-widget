@@ -1,0 +1,28 @@
+{
+  "name": "michaeldomo/yii2-instagram-widget",
+  "description": "Yii2 instagram widget.",
+  "type": "yii2-extension",
+  "keywords": ["yii2", "instagram", "instagram widget"],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Michael Domo",
+      "email": "domolazov.michael@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/MichaelDomo/yii2-instagram-widget/issues?state=open",
+    "source": "https://github.com/MichaelDomo/yii2-instagram-widget"
+  },
+  "require": {
+    "yiisoft/yii2-httpclient": "@dev",
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "michaeldomo\\instashow\\": "src/"
+    }
+  }
+}
