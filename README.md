@@ -26,8 +26,8 @@ Simply usage of widget in Yii2:
 ```
 use app\widgets\InstagramWidget;
 echo InstagramWidget::widget([
-    'channel' => 'spylance',
-    'limit' => 1,
+    'channel' => 'zuch',
+    'limit' => 22,
 ]);
 ```
 
