@@ -1,12 +1,9 @@
 <?php
 
-namespace app\components;
+namespace michaeldomo\instashow;
 
-use app\helpers\InstagramHelper;
-use yii\base\Component;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
-use yii\httpclient\Client;
 
 /**
  * Simply implementation of instagram feed with user and limit parameters.
@@ -35,30 +32,13 @@ use yii\httpclient\Client;
  *
  * @package app\components
  */
-class Instagram extends Component
+class Instagram
 {
     /**
      * Default limit of items that returns instagram.
      * @var integer
      */
     const DEFAULT_LIMIT = 20;
-
-    /**
-     * @var Client
-     */
-    private $client;
-
-    /**
-     * Instagram constructor.
-     *
-     * @param Client $client
-     * @param array $config
-     */
-    public function __construct(Client $client, $config = [])
-    {
-        $this->client = $client;
-        parent::__construct($config);
-    }
 
     /**
      * Fetch the media items.
@@ -116,11 +96,11 @@ class Instagram extends Component
     private function getResult($user, $lastId = '')
     {
         try {
-            $url = sprintf('https://www.instagram.com/%s/media', $user) . '?max_id=' . $lastId;
-            $response = $this->client->get($url)->send();
-            return Json::decode($response->getContent(), false);
+            $url = 'https://www.instagram.com/' . $user . '/media' . '?max_id=' . $lastId;
+            $response = file_get_contents($url);
+            return Json::decode($response, false);
         } catch (\Exception $e) {
-            throw new \Exception(sprintf('The user [%s] was not found.', $user));
+            throw new \Exception('The user [' . $user . '] was not found.');
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\helpers;
+namespace michaeldomo\instashow;
 
 /**
  * Class InstagramHelper
