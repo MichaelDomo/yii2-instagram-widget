@@ -22,4 +22,17 @@ class InstagramHelper
 
         return $items;
     }
+
+    /**
+     * @param string $text
+     * @return string
+     */
+    public static function wrapHashTags($text)
+    {
+        return preg_replace(
+            '/#(\w+)/',
+            '<a href="https://instagram.com/explore/tags/$1" target="_blank" rel="nofollow">$1</a>',
+            $text
+        );
+    }
 }

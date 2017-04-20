@@ -6,24 +6,23 @@ use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
 
 /**
- * Class InstagramAssets
+ * Class SlickAsset
  * @package app\widgets\views\instagram\assets
  */
-class InstagramAssets extends AssetBundle
+class SlickAssets extends AssetBundle
 {
-    public $sourcePath = '@vendor/michaeldomo/yii2-instagram-widget/src/assets/';
+    public $sourcePath = '@bower/slick-carousel/';
 
     public $css = [
-        'css/style.css',
+        'slick/slick.css',
+        'slick/slick-theme.css',
     ];
 
     public $js = [
-        'js/script.js'
+        'slick/slick.min.js',
     ];
 
     public $depends = [
         JqueryAsset::class,
-        SlickAssets::class,
-        VideoJsAssets::class
     ];
 }

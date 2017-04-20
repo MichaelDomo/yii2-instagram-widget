@@ -26,8 +26,6 @@ use yii\helpers\Json;
  * echo InstagramWidget::widget([
  *     'channel' => 'spylance',
  *     'limit' => 1,
- *     //Soon
- *     'thumbResolution' => 1080
  * ]);
  *
  * @package app\components
