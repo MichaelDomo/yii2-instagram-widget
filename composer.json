@@ -15,7 +15,7 @@
     "source": "https://github.com/MichaelDomo/yii2-instagram-widget"
   },
   "require": {
-    "yiisoft/yii2-httpclient": "@dev",
+    "yiisoft/yii2-httpclient": "@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*"
