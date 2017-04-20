@@ -8,10 +8,10 @@ use yii\helpers\StringHelper;
 <div class="instashow-wrap">
     <div class="instashow instashow-gallery">
         <div class="instashow-gallery-container">
-            <div class="slider instashow-gallery-view instashow-gallery-view-active">
+            <div class="instashow-slider instashow-gallery-view instashow-gallery-view-active">
                 <?php foreach ($items as $item) : ?>
                     <?php if ($item->type === 'video') {
-                        echo '<div class="instashow-gallery-media instashow-gallery-media-album instashow-gallery-media-video instashow-gallery-media-loaded">';
+                        echo '<div class="instashow-gallery-media instashow-gallery-media-square instashow-gallery-media-album instashow-gallery-media-video instashow-gallery-media-loaded">';
                     } else {
                         echo '<div class="instashow-gallery-media instashow-gallery-media-square instashow-gallery-media-loaded">';
                     }; ?>
@@ -61,7 +61,7 @@ use yii\helpers\StringHelper;
                                     <video class="video-js vjs-default-skin"
                                            poster="<?= $item->images->standard_resolution->url ?>"
                                            data-setup='{"controls":true, "preload": "auto"}'>
-                                        <source src="<?=$item->videos->standard_resolution->url ?>" type="video/mp4" />
+                                        <source src="<?=$item->videos->standard_resolution->url ?>" type="video/mp4"/>
                                     </video>;
                                 </figure>
                             <?php else : ?>
