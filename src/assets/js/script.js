@@ -4,23 +4,33 @@ $(document).ready(function() {
         mobileFirst: true,
         pauseOnHover: false,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         infinity: false,
         responsive: [{
-            breakpoint: 215,
+            breakpoint: 300,
             settings: {
                 slidesToShow: 1
             }
         },{
-            breakpoint: 430,
+            breakpoint: 600,
             settings: {
                 slidesToShow: 2
             }
         },{
-            breakpoint: 860,
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 3
+            }
+        },{
+            breakpoint: 1000,
             settings: {
                 slidesToShow: 4
+            }
+        },{
+            breakpoint: 1100,
+            settings: {
+                slidesToShow: 5
             }
         }]
     };
@@ -73,4 +83,15 @@ $(document).ready(function() {
             prevMedia.fadeIn(300);
         });
     });
+
+    $('video').click(function() {
+        this.paused ? this.play() : this.pause();
+    });
+
+    $('.instashow-popup-control-close, .instashow-popup-control-arrow-next, .instashow-popup-control-arrow-previous').click(function () {
+        $("video").each(function() {
+            this.currentTime = 0;
+            this.pause();
+        });
+    })
 });

@@ -13,8 +13,8 @@ use yii\helpers\StringHelper;
                     <?php if ($item->type === 'video') : ?>
                         <div class="instashow-gallery-media instashow-gallery-media-square instashow-gallery-media-album instashow-gallery-media-video instashow-gallery-media-loaded">
                     <?php else : ?>
-                        <div class="instashow-gallery-media instashow-gallery-media-square instashow-gallery-media-loaded">;
-                    <?php endif; ?>
+                        <div class="instashow-gallery-media instashow-gallery-media-square instashow-gallery-media-loaded">
+                    <?php endif ; ?>
                         <a class="instashow-gallery-media-link" href="<?= $item->link; ?>" target="_blank"
                            data-media-id="<?= $item->id; ?>">
                             <span class="instashow-gallery-media-cover"></span>
@@ -58,12 +58,11 @@ use yii\helpers\StringHelper;
                     <div data-media-id="<?= $item->id; ?>"
                          class="instashow-popup-media instashow-popup-media-has-comments instashow-popup-media-square">
                         <?php if ($item->type === 'video') : ?>
-                            <figure class="instashow-popup-media-picture instashow-popup-media-picture-loaded">
-                                <video class="video-js vjs-default-skin"
-                                       poster="<?= $item->images->standard_resolution->url ?>"
-                                       data-setup='{"controls":true, "preload": "auto"}'>
-                                    <source src="<?=$item->videos->standard_resolution->url ?>" type="video/mp4"/>
-                                </video>;
+                            <figure class="instashow-popup-media-picture instashow-popup-media-video instashow-popup-media-picture-loaded">
+                                <video poster="<?= $item->images->standard_resolution->url ?>"
+                                       src="<?=$item->videos->standard_resolution->url ?>"
+                                       preload="false" loop="" webkit-playsinline="">
+                                </video>
                             </figure>
                         <?php else : ?>
                             <figure class="instashow-popup-media-picture instashow-popup-media-picture-loaded">
@@ -99,7 +98,7 @@ use yii\helpers\StringHelper;
                                     </span>
                                     <span class="instashow-popup-media-info-properties-item-location instashow-popup-media-info-properties-item">
                                         <span class="instashow-icon instashow-icon-placemark"></span>
-                                        <em><?= $item->location->name ?></em>
+                                        <em><?= isset($item->location->name) ? $item->location->name : Yii::t('instashow', 'Not set') ?></em>
                                     </span>
                                 </div>
                                 <div class="instashow-popup-media-info-passed-time">

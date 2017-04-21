@@ -37,9 +37,17 @@ class InstagramWidget extends Widget
      */
     public function run()
     {
-        /** @var Instagram $instagram */
-        $instagram = Yii::createObject(Instagram::class);
-        $items = $instagram->get($this->channel, $this->limit);
+        $cache = Yii::$app->cache;
+        $key = [
+            self::class,
+            $this->channel . '-' . $this->limit,
+        ];
+
+        $items = $cache->getOrSet($key, function () {
+            /** @var Instagram $instagram */
+            $instagram = Yii::createObject(Instagram::class);
+            return $instagram->get($this->channel, $this->limit);
+        }, 72000);
 
         return $this->render('view', [
             'items' => $items

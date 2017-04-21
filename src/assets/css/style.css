@@ -605,12 +605,12 @@ div.instashow-gallery-empty-text {
     transition: all 0.3s ease;
     content: '\e800';
 }
-.instashow-playing .instashow-popup-media-video::before {
+/*.instashow-playing .instashow-popup-media-video::before {
     visibility: visible;
     opacity: 0;
     -webkit-transform: translateX(-50%) translateY(-50%) scale(2);
     transform: translateX(-50%) translateY(-50%) scale(2);
-}
+}*/
 div.instashow-popup-media-info {
     padding: 15px;
     box-sizing: border-box;
@@ -845,7 +845,7 @@ div.instashow-popup-media-info-comments-item {
     z-index: 12;
     width: 32px;
     height: 36px;
-    top: 0;
+    top: 0px;
     right: 68px;
     cursor: pointer;
     -webkit-transition: all 0.3s ease;
@@ -857,7 +857,7 @@ div.instashow-popup-media-info-comments-item {
     position: absolute;
     width: 18px;
     height: 3px;
-    top: 15px;
+    top: 7px;
     left: 10px;
     border-radius: 10px;
     background: #fff;
@@ -886,25 +886,25 @@ div.instashow-popup-media-info-comments-item {
         right: auto;
         width: 35px;
         height: 35px;
-        top: 68px;
-        left: 110px;
+        top: 48px;
+        left: 115px;
         border-radius: 50% 50%;
     }
     .instashow-popup-control-close::before,
     .instashow-popup-control-close::after {
         top: 11px;
         left: 12px;
-        width: 36px;
-        height: 7px;
+        width: 16px;
+        height: 2px;
     }
     .instashow-popup-control-close::after {
-        -webkit-transform: translateX(-10px) rotate(-45deg);;
-        transform: translateX(-10px) rotate(-45deg););
+        -webkit-transform: translateX(-5px) rotate(-45deg);
+        transform: translateX(-5px) rotate(-45deg);
     }
 }
 @media only screen and (max-width: 780px) {
     .instashow-popup-control-close {
-        top: 13px;
+        top: 15px;
         left: 15px;
     }
 }
@@ -1079,6 +1079,14 @@ div.instashow-popup-container {
     background: rgba(0, 162, 65, 0.97);
 }
 
+.instashow-gallery-control-scroll {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.instashow-gallery-control-scroll-slider {
+    background: rgb(68, 68, 68);
+}
+
 .instashow-gallery-control-arrow {
     background: rgba(255, 255, 255, 0.9);
 }
@@ -1091,7 +1099,6 @@ div.instashow-popup-container {
 .instashow-gallery-control-arrow::after {
     background: rgb(0, 154, 91);
 }
-
 .instashow-gallery-control-arrow:hover::before,
 .instashow-gallery-control-arrow:hover::after {
     background: rgb(0, 204, 81);
@@ -1155,7 +1162,18 @@ a.instashow-popup-media-info-original:hover {
     background: rgb(255, 255, 255);
 }
 
+.instashow-popup-media-video::before {
+    color: rgb(147, 213, 168);
+}
+
+.instashow-popup-media-video:hover::before {
+    color: rgb(255, 255, 255);
+}
+
 @media only screen and (max-width: 1024px) {
+    .instashow-popup-control-close {
+        background: rgba(255, 255, 255, .8);
+    }
     .instashow-popup-control-arrow span::before,
     .instashow-popup-control-arrow span::after,
     .instashow-popup-control-close::before,
@@ -1166,6 +1184,10 @@ a.instashow-popup-media-info-original:hover {
     .instashow-popup-control-close:hover::after {
         background: rgb(147, 213, 168);
     }
+
+    .instashow-popup-media-video::before {
+        color: rgb(147, 213, 168);
+    }
 }
 
 .instashow-slider {
@@ -1174,29 +1196,18 @@ a.instashow-popup-media-info-original:hover {
 .slick-initialized {
     display: block;
 }
-
-.vjs-default-skin .vjs-big-play-button:before {
-    color: #fff;
-    text-shadow: none;
-    line-height: 0;
+.slick-prev:before, .slick-next:before {
+    width: 30px;
+    height: 30px;
 }
-.vjs-default-skin .vjs-big-play-button {
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    left: 50%;
-    top: 50%;
-    font-size: 8em;
-    margin-left: -30px;
-    height: 0;
-    width: 0;
+.slick-prev {
+    left: -40px;
 }
-.vjs-default-skin:hover .vjs-big-play-button,
-.vjs-default-skin .vjs-big-play-button:focus {
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    outline: 0 none;
-    transition: none;
+.next {
+    right: -30px;
+}
+.slick-prev:before,
+.slick-next:before {
+    color: #4D4D4D;
+    font-size: 30px;
 }

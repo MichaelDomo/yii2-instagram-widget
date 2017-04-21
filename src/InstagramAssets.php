@@ -23,7 +23,6 @@ class InstagramAssets extends AssetBundle
 
     public $depends = [
         JqueryAsset::class,
-        SlickAssets::class,
-        VideoJsAssets::class
+        SlickAssets::class
     ];
 }
