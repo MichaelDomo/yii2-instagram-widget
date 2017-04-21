@@ -85,13 +85,23 @@ $(document).ready(function() {
     });
 
     $('video').click(function() {
-        this.paused ? this.play() : this.pause();
+        if (this.paused) {
+            $(this).closest('.instashow-popup-media').addClass('instashow-playing');
+            this.play();
+        } else {
+            $(this).closest('.instashow-popup-media').removeClass('instashow-playing');
+            this.pause();
+        }
     });
 
     $('.instashow-popup-control-close, .instashow-popup-control-arrow-next, .instashow-popup-control-arrow-previous').click(function () {
-        $("video").each(function() {
-            this.currentTime = 0;
-            this.pause();
-        });
+        var videos = $('.instashow-popup-media-video video');
+        if (videos.length) {
+            videos.each(function() {
+                this.currentTime = 0;
+                this.pause();
+                $(this).closest('.instashow-popup-media').removeClass('instashow-playing');
+            });
+        }
     })
 });

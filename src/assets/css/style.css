@@ -605,12 +605,12 @@ div.instashow-gallery-empty-text {
     transition: all 0.3s ease;
     content: '\e800';
 }
-/*.instashow-playing .instashow-popup-media-video::before {
+.instashow-playing .instashow-popup-media-video::before {
     visibility: visible;
     opacity: 0;
     -webkit-transform: translateX(-50%) translateY(-50%) scale(2);
     transform: translateX(-50%) translateY(-50%) scale(2);
-}*/
+}
 div.instashow-popup-media-info {
     padding: 15px;
     box-sizing: border-box;
@@ -1045,7 +1045,7 @@ div.instashow-popup-container {
     visibility: hidden;
     box-sizing: border-box;
     left: 50%;
-    padding: 56px 100px;
+    padding: 36px 100px;
     opacity: 0;
     -webkit-transform: translateX(-50%) scale(0.9);
     transform: translateX(-50%) scale(0.9);
