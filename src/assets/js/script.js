@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     var settings = {
         autoplay: false,
         mobileFirst: true,
@@ -25,32 +24,53 @@ $(document).ready(function() {
             }
         }]
     };
+
     $('.instashow-slider').slick(settings);
 
     $('.instashow-gallery-media-link').click(function (e) {
         event.preventDefault(e);
-        var mediaId = $(this).data('media-id');
-        $('.instashow-popup[data-media-id="' + mediaId + '"]').fadeIn(400);
+        var $this = $(this);
+        var mediaId = $this.data('media-id'),
+            rootElement = $this.closest('.instashow');
+        var currentMedia = rootElement.find('.instashow-popup-media[data-media-id="' + mediaId + '"]');
+
+        rootElement.find('.instashow-popup-control-arrow').data('media-id', mediaId);
+        rootElement.find('.instashow-popup-media').hide();
+        currentMedia.show();
+        rootElement.find('.instashow-popup').fadeIn(300);
     });
 
     $('.instashow-popup-control-close').click(function () {
-        $(this).closest('.instashow-popup').fadeOut(400);
-    })
+        $(this).closest('.instashow-popup').fadeOut(300);
+    });
 
-    $('.instashow-popup-control-arrow').click(function () {
-        var key = $(this).data('key');
-        var rootElement = $(this).closest('.instashow-wrap');
-        if (key === -1) {
-            var dataTarget = rootElement.find('.instashow-popup').last();
-        } else {
-            if (rootElement.find('div').is('.instashow-popup[data-key="' + key + '"]')) {
-                var dataTarget = rootElement.find('.instashow-popup[data-key="' + key + '"]');
-            } else {
-                var dataTarget = rootElement.find('.instashow-popup').first();
-            }
+    $('.instashow-popup-control-arrow-next').on('click', function () {
+        var $this = $(this);
+        var rootElement = $this.closest('.instashow');
+        var mediaId = $this.data('media-id');
+        var currentMedia = rootElement.find('.instashow-popup-media[data-media-id="' + mediaId + '"]');
+        var nextMedia = currentMedia.next('.instashow-popup-media');
+        if (!nextMedia.length) {
+            nextMedia = rootElement.find('.instashow-popup-media').first();
         }
-        $(this).closest('.instashow-popup').fadeOut(100, function () {
-            dataTarget.fadeIn(400);
-        })
-    })
+        rootElement.find('.instashow-popup-control-arrow').data('media-id', nextMedia.data('media-id'));
+        currentMedia.fadeOut(function () {
+            nextMedia.fadeIn(300);
+        });
+    });
+
+    $('.instashow-popup-control-arrow-previous').click(function () {
+        var $this = $(this);
+        var rootElement = $this.closest('.instashow');
+        var mediaId = $this.data('media-id');
+        var currentMedia = rootElement.find('.instashow-popup-media[data-media-id="' + mediaId + '"]');
+        var prevMedia = currentMedia.prev('.instashow-popup-media');
+        if (!prevMedia.length) {
+            prevMedia = rootElement.find('.instashow-popup-media').last();
+        }
+        rootElement.find('.instashow-popup-control-arrow').data('media-id', prevMedia.data('media-id'));
+        currentMedia.fadeOut(function () {
+            prevMedia.fadeIn(300);
+        });
+    });
 });

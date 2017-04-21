@@ -1015,6 +1015,7 @@ div.instashow-popup-media-info-comments-item {
     }
 }
 .instashow-popup {
+    display: none;
     position: fixed;
     visibility: hidden;
     z-index: 9999;
