@@ -7,7 +7,7 @@ use yii\web\JqueryAsset;
 
 /**
  * Class InstagramAssets
- * @package app\widgets\views\instagram\assets
+ * @package michaeldomo\instashow
  */
 class InstagramAssets extends AssetBundle
 {

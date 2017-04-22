@@ -7,7 +7,7 @@ use yii\helpers\Json;
 
 /**
  * Simply implementation of instagram feed with user and limit parameters.
- * Also you can use widget based on WordPress instashow template (I stole css and js from off site).
+ * Also you can use widget based on WordPress instashow template.
  *
  * Simply usage in Yii2:
  *

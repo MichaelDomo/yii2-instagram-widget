@@ -98,7 +98,11 @@ use yii\helpers\StringHelper;
                                     </span>
                                     <span class="instashow-popup-media-info-properties-item-location instashow-popup-media-info-properties-item">
                                         <span class="instashow-icon instashow-icon-placemark"></span>
-                                        <em><?= isset($item->location->name) ? $item->location->name : Yii::t('instashow', 'Not set') ?></em>
+                                        <em>
+                                            <?= isset($item->location->name) ?
+                                                $item->location->name :
+                                                Yii::t('instashow', 'Not set'); ?>
+                                        </em>
                                     </span>
                                 </div>
                                 <div class="instashow-popup-media-info-passed-time">

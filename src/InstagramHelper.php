@@ -4,7 +4,7 @@ namespace michaeldomo\instashow;
 
 /**
  * Class InstagramHelper
- * @package app\helpers
+ * @package michaeldomo\instashow
  */
 class InstagramHelper
 {

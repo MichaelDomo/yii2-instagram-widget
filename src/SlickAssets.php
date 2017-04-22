@@ -7,7 +7,7 @@ use yii\web\JqueryAsset;
 
 /**
  * Class SlickAsset
- * @package app\widgets\views\instagram\assets
+ * @package michaeldomo\instashow
  */
 class SlickAssets extends AssetBundle
 {

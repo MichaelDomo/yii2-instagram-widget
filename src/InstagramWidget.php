@@ -12,7 +12,7 @@ use yii\base\Widget;
 class InstagramWidget extends Widget
 {
     /**
-     * Channel name (like "spylance", e.t.c).
+     * Channel name.
      * @var string
      */
     public $channel;
