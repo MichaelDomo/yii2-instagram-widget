@@ -8,7 +8,7 @@ Also you can use widget(It looks like WordPress InstaShow).
 
 ## Installation:
 
-```composer require michaeldomo/yii2-instagram-widget "dev-masted"```
+```composer require michaeldomo/yii2-instagram-widget "dev-master"```
 
 or add in require section in composer.json
 
