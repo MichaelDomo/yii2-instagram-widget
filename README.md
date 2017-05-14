@@ -1,11 +1,18 @@
 # Yii2 instagram simple widget
 
 Simply implementation of instagram feed with user and limit parameters.
-Also you can use widget.
+
+You can use it for getting public data from someone instagram account.
+
+Also you can use widget(It looks like WordPress InstaShow).
 
 ## Installation:
 
-```composer require michaeldomo/yii2-instagram-widget```
+```composer require michaeldomo/yii2-instagram-widget "dev-masted"```
+
+or add in require section in composer.json
+
+```"michaeldomo/yii2-instagram-widget": "dev-master"```
 
 ## How to use
 
@@ -13,15 +20,20 @@ Simply usage in Yii2:
 
 Get feed public data:
 ```
+use michaeldomo\instashow\Instagram;
+
 $instagram = Yii::createObject(Instagram::class);
+//or $instagram = new Instagram();
+
 //There store all public data about user feed posts
 //Get from https://www.instagram.com/{user}/media
-$items = $instagram->get($this->channel, $this->limit);
+$items = $instagram->get($channel, $limit);
+
 //you can check data just print all
 print_r($items);
 ```
 
-Simply usage of widget in Yii2:
+Simply usage of widget:
 
 ```
 use app\widgets\InstagramWidget;
